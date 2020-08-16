@@ -12,10 +12,9 @@ export default class Main extends Component {
     page: 1,
   };
 
-
   componentDidMount() {
     this.loadProducts();
-  };
+  }
 
   loadProducts = async (page = 1)  => {
     const response = await api.get(`/products?page=${page}`);
@@ -24,8 +23,9 @@ export default class Main extends Component {
 
     this.setState({ products: docs, productInfo, page });
   };
+  
   prevPage = () => {
-    const { page, productInfo } = this.state;
+    const { page } = this.state;
 
     if (page === 1) return;
 
